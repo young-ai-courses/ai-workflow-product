@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # 講師的原始 repo。學員若直接 clone 它（而不是先按 Use this template），
 # 底下每一項跟 GitHub 有關的檢查都會去查「講師的 repo」——
 # 答案看起來很正常，但查的根本不是他自己的東西。
-INSTRUCTOR_REPO = "young-ai-courses/ai-workflow-workshop"
+INSTRUCTOR_REPO = "young-ai-courses/ai-workflow-product"
 
 PASS, FAIL, UNKNOWN = "PASS", "FAIL", "UNKNOWN"
 MARK = {PASS: "✅", FAIL: "❌", UNKNOWN: "❔"}

@@ -46,7 +46,7 @@ description: 手把手帶學員把這個 repo 改造成他自己的自動化。�
 他對它**沒有寫入權限**，走到第 6 步 push 一定失敗，而且錯誤訊息看不懂。
 
 帶他補救（三分鐘，之前做的都不會白費）：
-1. 去 github.com/young-ai-courses/ai-workflow-workshop 按 **Use this template** → 建自己的
+1. 去 github.com/young-ai-courses/ai-workflow-product 按 **Use this template** → 建自己的
 2. `git clone` 他自己那個新 repo
 3. 在新資料夾裡繼續
 

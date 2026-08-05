@@ -54,8 +54,20 @@ pip install -r requirements.txt
 python3 scripts/check_setup.py
 ```
 
-它查七件事，包含那些**畫面上看起來都對、實際上永遠不會跑**的地方。
-查不到的會標 ❔，不會假裝是綠的。
+它查**八件事**，包含那些**畫面上看起來都對、實際上永遠不會跑**的地方：
+
+| 查什麼 | 為什麼要查 |
+|---|---|
+| 你在自己的 repo 裡 | 直接 clone 我這顆的話你沒有寫入權限，後面全都是白做 |
+| `config.yaml` 換過了 | 沒換就還是在追我的來源，不是你的 |
+| workflow 的寫入權限還在 | 刪掉的話程式照跑、Actions 照樣綠燈，但報告不會出現 |
+| Actions 啟用了 | 最多人漏這步，症狀是「設定全對，什麼都沒發生」 |
+| `GROQ_API_KEY` 設好了 | 沒設不會壞，但摘要那段會是空的 |
+| 測試是綠的 | 確認沒改壞地基 |
+| 報告真的存在 | 有檔案才算數 |
+| workflow 在 GitHub 上真的跑過 | 本機好了 ≠ 線上會跑 |
+
+**查不到的會標 ❔，不會假裝是綠的。**
 
 想在自己電腦上先跑一次看看：
 
@@ -63,6 +75,50 @@ python3 scripts/check_setup.py
 export GROQ_API_KEY=你的金鑰
 python3 scripts/weekly_competitor_digest.py
 ```
+
+沒有金鑰也可以跑 —— 報告照出，只是 AI 摘要那段會寫「⚠️ 沒有 GROQ_API_KEY」。
+
+---
+
+## 這包附了一位助教（知道那天課上講了什麼）
+
+不用記得課堂內容，讓它帶你走。**看你手上有什麼，三條路都可以：**
+
+| 你有什麼 | 怎麼用 |
+|---|---|
+| **只有免費的 ChatGPT / Gemini / Claude 網頁版**（多數人） | 打開 **[貼上版助教.md](貼上版助教.md)** → 按複製 → 貼進去送出。什麼都不用安裝，全程在瀏覽器 |
+| **Claude Code** | 在這個資料夾裡打開它，直接講話。它會自動讀 `CLAUDE.md` 和 `.claude/` |
+| **Codex** | 一樣在資料夾裡打開。它讀 `AGENTS.md`；`.claude/` 裡的檔案對它就是一般 markdown，要用的時候整份讀進來 |
+
+三條路**內容一模一樣**，差別只在後兩條看得到你的檔案、能直接幫你跑檢查。
+
+### 跟它說這三句就好
+
+| 你說 | 它做什麼 |
+|---|---|
+| **開始教我** | 一次一步帶你把這顆改成解決你自己那件重複工作的東西。說完一步會**停下來等你**，不會一次倒一堆 |
+| **檢查一下我做好了沒** | 跑上面那八項機器驗，拿證據回答你，不接受「我覺得好了」 |
+| **幫我複習** | 把整條線重新串一遍，你也可以只挑忘記的那段聽 |
+
+（不知道要說哪句，就打「助教」，它會問你。）
+
+第一次用，它可能會先花兩分鐘問你八題（你的程度、想自動化什麼、希望它怎麼跟你講話），
+答完寫成 `CLAUDE.local.md`，之後講話就照你的節奏。**不想做就說不用，它不會催。**
+
+裡面實際有什麼：
+
+```
+CLAUDE.md                          Claude Code 的入口
+AGENTS.md                          Codex 的入口（內容同上，多了「要自己讀檔」的說明）
+貼上版助教.md                       免費 AI 用這份，一鍵複製
+.claude/agents/teaching-assistant.md   助教本人，帶著整堂課的內容
+.claude/agents/student-profiler.md     入學診斷（那八題）
+.claude/skills/workshop-guide/         「開始教我」走這個流程
+.claude/skills/blind-spot-check/       「檢查一下」走這個流程
+.claude/skills/student-intake/         「診斷我」走這個流程
+```
+
+⚠️ **它不會跟你要 API 金鑰，你也不要貼給它。** 金鑰只走 GitHub repo 的 secret。
 
 ---
 
@@ -80,9 +136,7 @@ python3 scripts/weekly_competitor_digest.py
 同一套架構可以做：每日 standup（抓 git log）、客戶新聞追蹤、論文追蹤（arXiv RSS）、
 SEO 排名監控、專案進度報告（GitHub Issues API）。
 
-**卡住了就問 AI。** 這包附了一位知道課堂內容的助教：
-免費 ChatGPT / Gemini 使用者打開 [貼上版助教.md](貼上版助教.md) 複製貼上即可；
-有 Claude Code / Codex 的，在資料夾裡打開它直接講話。
+**卡住了就跟助教說「開始教我」**（見上面那節），它會一次一步帶你改。
 
 ---
 
