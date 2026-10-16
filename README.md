@@ -170,3 +170,7 @@ GitHub 預設 workflow 只有唯讀權限；刪掉之後程式照跑、Actions �
 
 *2026-08-06 線上課「自動化工作流程設計」— 完成版*
 *練習版 → [ai-workflow-workshop](https://github.com/young-ai-courses/ai-workflow-workshop)*
+
+---
+
+授權：本教材採 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)，可分享、改作，須標示來源，不可商用｜© 2026 睿度科技有限公司 Redutek Co., Ltd.（見 [LICENSE](LICENSE)）
